@@ -9,6 +9,7 @@ namespace MoviesListing
 {
     internal class MovieManager
     {
+        public event EventHandler<string> DisplayChanged;
         public List<Movie> Movies { get; set; } = new List<Movie>();
 
         public MovieManager()
@@ -24,11 +25,11 @@ namespace MoviesListing
 
         public void MoviesAfter2000()
         {
-            Console.WriteLine("2000 után készült filmek:");
+            DisplayChanged?.Invoke(this, "2000 után készült filmek:");
             var q = Movies.Where(m => m.Year > 2000);
             foreach (var m in q)
             {
-                Console.WriteLine($"Title: {m.Title}");
+                DisplayChanged?.Invoke(this, $"Title: {m.Title}, Year: {m.Year}");
             }
         }
 
