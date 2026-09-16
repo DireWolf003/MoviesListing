@@ -2,9 +2,61 @@
 {
     internal class Program
     {
+        static List<Movie> movies = new List<Movie>();
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Menu();
+        }
+
+        static void Menu()
+        {
+            Console.Clear();
+            Console.WriteLine("1: Add Movie");
+            Console.WriteLine("2: List Movies");
+            string? choice = Console.ReadLine();
+            if (choice == "1")
+            {
+                Add();
+            }
+            else if (choice == "2")
+            {
+                List();
+            }
+        }
+
+        static void List()
+        {
+            Console.Clear();
+            Console.WriteLine("LIST MENU");
+            Console.WriteLine();
+            foreach (Movie m in movies)
+            {
+                Console.WriteLine($"Title: {m.Title}, Duration: {m.Duration}, Year: {m.Year}");
+            }
+            Console.ReadLine();
+            Menu();
+        }
+
+        static void Add()
+        {
+            Console.Clear();
+            Console.WriteLine("ADD MENU");
+
+            Movie m = new Movie();
+
+            Console.Write("Movie Title: ");
+            m.Title = Console.ReadLine() ?? "";
+
+            Console.Write("Movie Duration: ");
+            m.Duration = int.Parse(Console.ReadLine() ?? "0");
+
+            Console.Write("Movie Year: ");
+            m.Year = int.Parse(Console.ReadLine() ?? "0");
+
+            movies.Add(m);
+
+            //Console.ReadLine();
+            Menu();
         }
     }
 }
