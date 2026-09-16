@@ -39,6 +39,8 @@
             movieManager.SearchMovei();
             Console.WriteLine();
             movieManager.ShortMovie();
+            Console.WriteLine();
+            movieManager.LongMovie();
             Console.ReadLine();
             Menu();
         }

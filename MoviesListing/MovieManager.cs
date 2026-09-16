@@ -63,6 +63,14 @@ namespace MoviesListing
         }
 
 
+        public void LongMovie()
+        {
+            Console.WriteLine("Minden film hosszab-e mint fél óra: ");
+            var q = Movies.All(m => m.Duration > 30);
+            Console.WriteLine(q);
+        }
+
+
         public bool Filter(Movie m)
         {
             return m.Year > 2000;
