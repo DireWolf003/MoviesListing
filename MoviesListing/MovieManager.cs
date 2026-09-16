@@ -71,6 +71,16 @@ namespace MoviesListing
         }
 
 
+        public void SortByDuration()
+        {
+            Console.WriteLine("Hossz szerint növekvő sorrend: ");
+            var q = Movies.OrderBy(m => m.Duration);
+            foreach (var m in q)
+            {
+                Console.WriteLine($"Title: {m.Title}, Duration: {m.Duration}");
+            }
+        }
+
         public bool Filter(Movie m)
         {
             return m.Year > 2000;

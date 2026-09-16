@@ -41,6 +41,8 @@
             movieManager.ShortMovie();
             Console.WriteLine();
             movieManager.LongMovie();
+            Console.WriteLine();
+            movieManager.SortByDuration();
             Console.ReadLine();
             Menu();
         }
