@@ -32,6 +32,37 @@ namespace MoviesListing
             }
         }
 
+
+        public void SearchMovei()
+        {
+            Console.WriteLine("2000 után jelent meg és 2 órás");
+            var q = Movies.FirstOrDefault(m => m.Year > 2000 && m.Duration >= 120);
+            if(q == null)
+            {
+                Console.WriteLine("Nincs ilyen film");
+            }
+            else
+            {
+                Console.WriteLine($"Title: {q.Title}");
+            }
+        }
+
+
+        public void ShortMovie()
+        {
+            Console.WriteLine("1 óránál rövidebb film: ");
+            var q = Movies.Any(m => m.Duration < 60);
+            if(q)
+            {
+                Console.WriteLine("Van ilyen film");
+            }
+            else
+            {
+                Console.WriteLine("Nincs ilyen film");
+            }
+        }
+
+
         public bool Filter(Movie m)
         {
             return m.Year > 2000;
