@@ -21,6 +21,22 @@ namespace MoviesListing
             Movies.Add(m);
             Save();
         }
+
+        public void MoviesAfter2000()
+        {
+            Console.WriteLine("2000 után készült filmek:");
+            var q = Movies.Where(m => m.Year > 2000);
+            foreach (var m in q)
+            {
+                Console.WriteLine($"Title: {m.Title}");
+            }
+        }
+
+        public bool Filter(Movie m)
+        {
+            return m.Year > 2000;
+        }
+
         public void Load()
         {
             if (File.Exists("movies.json"))
